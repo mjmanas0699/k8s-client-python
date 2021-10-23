@@ -43,10 +43,10 @@ service_spec=client.V1ServiceSpec(type="ClusterIP",
 service=client.V1Service(kind="Service",metadata=client.V1ObjectMeta(name="testfrompython"),spec=service_spec)
 
 
-print(dump(deploy.to_dict()))
-# print(dump(service.to_dict()))
-# deploy_result=appsv1.create_namespaced_deployment(namespace="default",body=deploy) #SERVICE CREATION
+# print(dump(deploy.to_dict()))
+print(dump(service.to_dict()))
+deploy_result=appsv1.create_namespaced_deployment(namespace="default",body=deploy)  #Deployment CREATION 
 
-# service_result=corev1api.create_namespaced_service(namespace="default",body=service) #Deployment CREATION
+service_result=corev1api.create_namespaced_service(namespace="default",body=service) #SERVICE CREATION
 
-# persistent_vol_result=corev1api.create_namespaced_persistent_volume_claim(namespace="default",body=persistent_vol)
+persistent_vol_result=corev1api.create_namespaced_persistent_volume_claim(namespace="default",body=persistent_vol) #PersistentVolumeClaim CREATION
