@@ -1,0 +1,334 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"StatefulSet\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"mynotebook\"},\"name\":\"mynotebook\",\"namespace\":\"jlab\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"name\":\"mynotebook\"}},\"serviceName\":\"mynotebook\",\"template\":{\"metadata\":{\"labels\":{\"name\":\"mynotebook\"}},\"spec\":{\"containers\":[{\"command\":[\"/bin/bash\",\"-c\",\"start.sh jupyter lab --LabApp.token='' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.base_url='/mynotebook'\\n\"],\"image\":\"jupyter/datascience-notebook:latest\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"mynotebook\",\"ports\":[{\"containerPort\":8888}],\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"1000Mi\"},\"requests\":{\"cpu\":\"250m\",\"memory\":\"500Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/usr/src/workdir\",\"name\":\"mynotebook-data\"}]}],\"restartPolicy\":\"Always\",\"securityContext\":{\"fsGroup\":0,\"runAsUser\":0},\"volumes\":[{\"name\":\"mynotebook-data\",\"persistentVolumeClaim\":{\"claimName\":\"mynotebook-pvc\"}}]}}}}\n"
+                },
+                "creationTimestamp": "2021-05-09T04:51:51Z",
+                "generation": 2,
+                "labels": {
+                    "name": "mynotebook"
+                },
+                "name": "mynotebook",
+                "namespace": "jlab",
+                "resourceVersion": "10392459",
+                "selfLink": "/apis/apps/v1/namespaces/jlab/statefulsets/mynotebook",
+                "uid": "c60bbb8a-1cc7-4d81-8945-793c24fa5e8f"
+            },
+            "spec": {
+                "podManagementPolicy": "OrderedReady",
+                "replicas": 1,
+                "revisionHistoryLimit": 10,
+                "selector": {
+                    "matchLabels": {
+                        "name": "mynotebook"
+                    }
+                },
+                "serviceName": "mynotebook",
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "mynotebook"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "command": [
+                                    "/bin/bash",
+                                    "-c",
+                                    "start.sh jupyter lab --LabApp.token='' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.base_url='/mynotebook'\n"
+                                ],
+                                "image": "jupyter/datascience-notebook:latest",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "mynotebook",
+                                "ports": [
+                                    {
+                                        "containerPort": 8888,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "500m",
+                                        "memory": "1000Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "250m",
+                                        "memory": "500Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/usr/src/workdir",
+                                        "name": "mynotebook-data"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "fsGroup": 0,
+                            "runAsUser": 0
+                        },
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "name": "mynotebook-data",
+                                "persistentVolumeClaim": {
+                                    "claimName": "mynotebook-pvc"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "updateStrategy": {
+                    "rollingUpdate": {
+                        "partition": 0
+                    },
+                    "type": "RollingUpdate"
+                }
+            },
+            "status": {
+                "collisionCount": 0,
+                "currentReplicas": 1,
+                "currentRevision": "mynotebook-6bfb8b9fdb",
+                "observedGeneration": 2,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updateRevision": "mynotebook-6bfb8b9fdb",
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"StatefulSet\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"notebook\"},\"name\":\"notebook\",\"namespace\":\"jlab\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"name\":\"notebook\"}},\"serviceName\":\"notebook\",\"template\":{\"metadata\":{\"labels\":{\"name\":\"notebook\"}},\"spec\":{\"containers\":[{\"command\":[\"/bin/bash\",\"-c\",\"start.sh jupyter lab --LabApp.token='' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.base_url='/notebook'\\n\"],\"image\":\"jupyter/datascience-notebook:latest\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"notebook\",\"ports\":[{\"containerPort\":8888}],\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"1000Mi\"},\"requests\":{\"cpu\":\"250m\",\"memory\":\"500Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/usr/src/workdir\",\"name\":\"notebook-data\"}]}],\"restartPolicy\":\"Always\",\"securityContext\":{\"fsGroup\":0,\"runAsUser\":0},\"volumes\":[{\"name\":\"notebook-data\",\"persistentVolumeClaim\":{\"claimName\":\"notebook-pvc\"}}]}}}}\n"
+                },
+                "creationTimestamp": "2021-05-10T05:20:16Z",
+                "generation": 2,
+                "labels": {
+                    "name": "notebook"
+                },
+                "name": "notebook",
+                "namespace": "jlab",
+                "resourceVersion": "10392180",
+                "selfLink": "/apis/apps/v1/namespaces/jlab/statefulsets/notebook",
+                "uid": "366b09ba-8060-43c7-9d6f-6ccd3859cabc"
+            },
+            "spec": {
+                "podManagementPolicy": "OrderedReady",
+                "replicas": 1,
+                "revisionHistoryLimit": 10,
+                "selector": {
+                    "matchLabels": {
+                        "name": "notebook"
+                    }
+                },
+                "serviceName": "notebook",
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "notebook"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "command": [
+                                    "/bin/bash",
+                                    "-c",
+                                    "start.sh jupyter lab --LabApp.token='' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.base_url='/notebook'\n"
+                                ],
+                                "image": "jupyter/datascience-notebook:latest",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "notebook",
+                                "ports": [
+                                    {
+                                        "containerPort": 8888,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "500m",
+                                        "memory": "1000Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "250m",
+                                        "memory": "500Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/usr/src/workdir",
+                                        "name": "notebook-data"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "fsGroup": 0,
+                            "runAsUser": 0
+                        },
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "name": "notebook-data",
+                                "persistentVolumeClaim": {
+                                    "claimName": "notebook-pvc"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "updateStrategy": {
+                    "rollingUpdate": {
+                        "partition": 0
+                    },
+                    "type": "RollingUpdate"
+                }
+            },
+            "status": {
+                "collisionCount": 0,
+                "currentReplicas": 1,
+                "currentRevision": "notebook-75467b8db6",
+                "observedGeneration": 2,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updateRevision": "notebook-75467b8db6",
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"StatefulSet\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"notebook12\"},\"name\":\"notebook12\",\"namespace\":\"jlab\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"name\":\"notebook12\"}},\"serviceName\":\"notebook12\",\"template\":{\"metadata\":{\"labels\":{\"name\":\"notebook12\"}},\"spec\":{\"containers\":[{\"command\":[\"/bin/bash\",\"-c\",\"start.sh jupyter lab --LabApp.token='' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.base_url='/notebook12'\\n\"],\"image\":\"jupyter/datascience-notebook:latest\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"notebook12\",\"ports\":[{\"containerPort\":8888}],\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"1000Mi\"},\"requests\":{\"cpu\":\"250m\",\"memory\":\"500Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/usr/src/workdir\",\"name\":\"notebook12-data\"}]}],\"restartPolicy\":\"Always\",\"securityContext\":{\"fsGroup\":0,\"runAsUser\":0},\"volumes\":[{\"name\":\"notebook12-data\",\"persistentVolumeClaim\":{\"claimName\":\"notebook12-pvc\"}}]}}}}\n"
+                },
+                "creationTimestamp": "2021-05-09T05:01:10Z",
+                "generation": 2,
+                "labels": {
+                    "name": "notebook12"
+                },
+                "name": "notebook12",
+                "namespace": "jlab",
+                "resourceVersion": "10392423",
+                "selfLink": "/apis/apps/v1/namespaces/jlab/statefulsets/notebook12",
+                "uid": "994f3c4b-7b13-47c2-a100-e8ec4df955d5"
+            },
+            "spec": {
+                "podManagementPolicy": "OrderedReady",
+                "replicas": 1,
+                "revisionHistoryLimit": 10,
+                "selector": {
+                    "matchLabels": {
+                        "name": "notebook12"
+                    }
+                },
+                "serviceName": "notebook12",
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "notebook12"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "command": [
+                                    "/bin/bash",
+                                    "-c",
+                                    "start.sh jupyter lab --LabApp.token='' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.base_url='/notebook12'\n"
+                                ],
+                                "image": "jupyter/datascience-notebook:latest",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "notebook12",
+                                "ports": [
+                                    {
+                                        "containerPort": 8888,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "500m",
+                                        "memory": "1000Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "250m",
+                                        "memory": "500Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/usr/src/workdir",
+                                        "name": "notebook12-data"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "fsGroup": 0,
+                            "runAsUser": 0
+                        },
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "name": "notebook12-data",
+                                "persistentVolumeClaim": {
+                                    "claimName": "notebook12-pvc"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "updateStrategy": {
+                    "rollingUpdate": {
+                        "partition": 0
+                    },
+                    "type": "RollingUpdate"
+                }
+            },
+            "status": {
+                "collisionCount": 0,
+                "currentReplicas": 1,
+                "currentRevision": "notebook12-5c76768d74",
+                "observedGeneration": 2,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updateRevision": "notebook12-5c76768d74",
+                "updatedReplicas": 1
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

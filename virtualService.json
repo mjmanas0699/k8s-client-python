@@ -1,0 +1,250 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "networking.istio.io/v1beta1",
+            "kind": "VirtualService",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.istio.io/v1alpha3\",\"kind\":\"VirtualService\",\"metadata\":{\"annotations\":{},\"name\":\"katib-ui\",\"namespace\":\"kubeflow\"},\"spec\":{\"gateways\":[\"kubeflow-gateway\"],\"hosts\":[\"*\"],\"http\":[{\"match\":[{\"uri\":{\"prefix\":\"/katib/\"}}],\"rewrite\":{\"uri\":\"/katib/\"},\"route\":[{\"destination\":{\"host\":\"katib-ui.kubeflow.svc.cluster.local\",\"port\":{\"number\":80}}}]}]}}\n"
+                },
+                "creationTimestamp": "2021-05-04T06:59:49Z",
+                "generation": 2,
+                "name": "katib-ui",
+                "namespace": "kubeflow",
+                "resourceVersion": "7998050",
+                "selfLink": "/apis/networking.istio.io/v1beta1/namespaces/kubeflow/virtualservices/katib-ui",
+                "uid": "7bf03f1f-33f8-4ba7-8d81-02286aaae5cc"
+            },
+            "spec": {
+                "gateways": [
+                    "kubeflow-gateway"
+                ],
+                "hosts": [
+                    "20.195.99.27.nip.io"
+                ],
+                "http": [
+                    {
+                        "match": [
+                            {
+                                "uri": {
+                                    "prefix": "/katib/"
+                                }
+                            }
+                        ],
+                        "rewrite": {
+                            "uri": "/katib/"
+                        },
+                        "route": [
+                            {
+                                "destination": {
+                                    "host": "katib-ui.kubeflow.svc.cluster.local",
+                                    "port": {
+                                        "number": 80
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.istio.io/v1beta1",
+            "kind": "VirtualService",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.istio.io/v1alpha3\",\"kind\":\"VirtualService\",\"metadata\":{\"annotations\":{},\"name\":\"mynotebook-vs\",\"namespace\":\"kubeflow\"},\"spec\":{\"gateways\":[\"kubeflow/kubeflow-gateway\"],\"hosts\":[\"20.195.99.27.nip.io\"],\"http\":[{\"match\":[{\"uri\":{\"prefix\":\"/mynotebook\"}}],\"rewrite\":{\"uri\":\"/mynotebook\"},\"route\":[{\"destination\":{\"host\":\"mynotebook.jlab.svc.cluster.local\",\"port\":{\"number\":80}}}]}]}}\n"
+                },
+                "creationTimestamp": "2021-05-09T04:51:51Z",
+                "generation": 1,
+                "name": "mynotebook-vs",
+                "namespace": "kubeflow",
+                "resourceVersion": "9964254",
+                "selfLink": "/apis/networking.istio.io/v1beta1/namespaces/kubeflow/virtualservices/mynotebook-vs",
+                "uid": "25ba5e1b-b1ef-4d34-a09f-32f17baf90a5"
+            },
+            "spec": {
+                "gateways": [
+                    "kubeflow/kubeflow-gateway"
+                ],
+                "hosts": [
+                    "20.195.99.27.nip.io"
+                ],
+                "http": [
+                    {
+                        "match": [
+                            {
+                                "uri": {
+                                    "prefix": "/mynotebook"
+                                }
+                            }
+                        ],
+                        "rewrite": {
+                            "uri": "/mynotebook"
+                        },
+                        "route": [
+                            {
+                                "destination": {
+                                    "host": "mynotebook.jlab.svc.cluster.local",
+                                    "port": {
+                                        "number": 80
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.istio.io/v1beta1",
+            "kind": "VirtualService",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.istio.io/v1alpha3\",\"kind\":\"VirtualService\",\"metadata\":{\"annotations\":{},\"name\":\"notebook-vs\",\"namespace\":\"kubeflow\"},\"spec\":{\"gateways\":[\"kubeflow/kubeflow-gateway\"],\"hosts\":[\"20.195.99.27.nip.io\"],\"http\":[{\"match\":[{\"uri\":{\"prefix\":\"/notebook\"}}],\"rewrite\":{\"uri\":\"/notebook\"},\"route\":[{\"destination\":{\"host\":\"notebook.jlab.svc.cluster.local\",\"port\":{\"number\":80}}}]}]}}\n"
+                },
+                "creationTimestamp": "2021-05-10T05:20:18Z",
+                "generation": 1,
+                "name": "notebook-vs",
+                "namespace": "kubeflow",
+                "resourceVersion": "10371255",
+                "selfLink": "/apis/networking.istio.io/v1beta1/namespaces/kubeflow/virtualservices/notebook-vs",
+                "uid": "ee019776-5c90-4310-bf12-0e311539b88a"
+            },
+            "spec": {
+                "gateways": [
+                    "kubeflow/kubeflow-gateway"
+                ],
+                "hosts": [
+                    "20.195.99.27.nip.io"
+                ],
+                "http": [
+                    {
+                        "match": [
+                            {
+                                "uri": {
+                                    "prefix": "/notebook"
+                                }
+                            }
+                        ],
+                        "rewrite": {
+                            "uri": "/notebook"
+                        },
+                        "route": [
+                            {
+                                "destination": {
+                                    "host": "notebook.jlab.svc.cluster.local",
+                                    "port": {
+                                        "number": 80
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.istio.io/v1beta1",
+            "kind": "VirtualService",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.istio.io/v1alpha3\",\"kind\":\"VirtualService\",\"metadata\":{\"annotations\":{},\"name\":\"notebook12-vs\",\"namespace\":\"kubeflow\"},\"spec\":{\"gateways\":[\"kubeflow/kubeflow-gateway\"],\"hosts\":[\"20.195.99.27.nip.io\"],\"http\":[{\"match\":[{\"uri\":{\"prefix\":\"/notebook12\"}}],\"rewrite\":{\"uri\":\"/notebook12\"},\"route\":[{\"destination\":{\"host\":\"notebook12.jlab.svc.cluster.local\",\"port\":{\"number\":80}}}]}]}}\n"
+                },
+                "creationTimestamp": "2021-05-09T05:01:10Z",
+                "generation": 1,
+                "name": "notebook12-vs",
+                "namespace": "kubeflow",
+                "resourceVersion": "9966963",
+                "selfLink": "/apis/networking.istio.io/v1beta1/namespaces/kubeflow/virtualservices/notebook12-vs",
+                "uid": "b725d8f4-ad3c-4cf2-b226-5f611f469e0a"
+            },
+            "spec": {
+                "gateways": [
+                    "kubeflow/kubeflow-gateway"
+                ],
+                "hosts": [
+                    "20.195.99.27.nip.io"
+                ],
+                "http": [
+                    {
+                        "match": [
+                            {
+                                "uri": {
+                                    "prefix": "/notebook12"
+                                }
+                            }
+                        ],
+                        "rewrite": {
+                            "uri": "/notebook12"
+                        },
+                        "route": [
+                            {
+                                "destination": {
+                                    "host": "notebook12.jlab.svc.cluster.local",
+                                    "port": {
+                                        "number": 80
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.istio.io/v1beta1",
+            "kind": "VirtualService",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.istio.io/v1alpha3\",\"kind\":\"VirtualService\",\"metadata\":{\"annotations\":{},\"name\":\"pipeline-vs\",\"namespace\":\"kubeflow\"},\"spec\":{\"gateways\":[\"kubeflow/kubeflow-gateway\"],\"hosts\":[\"20.195.99.27.nip.io\"],\"http\":[{\"match\":[{\"uri\":{\"prefix\":\"/pipeline\"}}],\"rewrite\":{\"uri\":\"/pipeline\"},\"route\":[{\"destination\":{\"host\":\"ml-pipeline-ui.kubeflow.svc.cluster.local\",\"port\":{\"number\":80}}}]}]}}\n"
+                },
+                "creationTimestamp": "2021-05-03T14:08:41Z",
+                "generation": 1,
+                "name": "pipeline-vs",
+                "namespace": "kubeflow",
+                "resourceVersion": "7818664",
+                "selfLink": "/apis/networking.istio.io/v1beta1/namespaces/kubeflow/virtualservices/pipeline-vs",
+                "uid": "8204b4b7-744c-45f9-8a41-5e44cf84a30d"
+            },
+            "spec": {
+                "gateways": [
+                    "kubeflow/kubeflow-gateway"
+                ],
+                "hosts": [
+                    "20.195.99.27.nip.io"
+                ],
+                "http": [
+                    {
+                        "match": [
+                            {
+                                "uri": {
+                                    "prefix": "/pipeline"
+                                }
+                            }
+                        ],
+                        "rewrite": {
+                            "uri": "/pipeline"
+                        },
+                        "route": [
+                            {
+                                "destination": {
+                                    "host": "ml-pipeline-ui.kubeflow.svc.cluster.local",
+                                    "port": {
+                                        "number": 80
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
